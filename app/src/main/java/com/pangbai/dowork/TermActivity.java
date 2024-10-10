@@ -96,10 +96,10 @@ public class TermActivity extends AppCompatActivity implements OnClickListener {
 
         if (isChroot)
             dialogUtils.showConfirmationDialog(this,
-                    "退出终端",
-                    "是否同时卸载容器",
-                    "退出并卸载",
-                    "后台运行进程",
+                    "Exit terminal",
+                    "Uninstall container as well",
+                    "Exit and uninstall",
+                    "Run process in the background",
                     () -> {
                         CommandBuilder.stopChroot();
                         finish();
