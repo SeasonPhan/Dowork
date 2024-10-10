@@ -49,7 +49,7 @@ public class displayFragment extends Fragment implements View.OnClickListener, C
         switchXServerUI(isXserverInternal(getContext()));
         binding.switchPulseaudio.setChecked(isAudioOn(getContext()));
         int screen[]=getScreenParam(getContext());
-        binding.deviceScreen.setText("您的设备宽为"+screen[0]+",高为"+screen[1]);
+        binding.deviceScreen.setText("Your device width is "+screen[0]+", height is "+screen[1]);
 
         return binding.getRoot();
     }
