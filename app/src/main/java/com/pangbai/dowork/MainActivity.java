@@ -61,14 +61,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this)) {
                 dialogUtils.showConfirmationDialog(this,
-                        "权限申请以及隐私协议",
-                        "为运行必要服务,请授予本软件权限\n隐私协议:\n为运行浮窗,导入容器,chroot等操作本软件需要必要权限\n本软件承诺不收集任何用户私人信息, 权限仅用于软件服务内容",
-                        "同意",
-                        "退出",
+                        "Permission Request and Privacy Agreement",
+                        "To run essential services, please grant this software the necessary permissions.\nPrivacy Agreement:\nThis software requires certain permissions to operate features like floating windows, importing containers, and chroot operations.\nWe promise not to collect any personal information from users; permissions are solely used for the software's service functionality.",
+                        "Agree",
+                        "Exit",
                         () -> {
                             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                                     Uri.parse("package:" + getPackageName()));
-                            Toast.makeText(this, "请授予悬浮窗权限", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, "Please grant permission for the floating window", Toast.LENGTH_LONG).show();
                             startActivityForResult(intent, REQUEST_CODE_FLOATING_WINDOW);
                         },
                         () -> finish());
