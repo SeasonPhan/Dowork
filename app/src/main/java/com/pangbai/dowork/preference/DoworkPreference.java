@@ -34,7 +34,7 @@ public class DoworkPreference {
 
         File propsFile = new File(Init.keyPath);
         if (!propsFile.exists())
-            Toast.makeText(ct, "无法找到按键文件", Toast.LENGTH_LONG).show();
+            Toast.makeText(ct, "Unable to find the key file", Toast.LENGTH_LONG).show();
 
         Properties props = new Properties();
         try {
