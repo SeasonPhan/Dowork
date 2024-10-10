@@ -97,7 +97,7 @@ public class ctAdapter extends RecyclerView.Adapter<MyViewHoder> {
                 return;
           //  PrefStore.changeProfile(view.getContext(), mList.get(myViewHoder.getAdapterPosition()).name);
            if (mList.get(myViewHoder.getAdapterPosition()).method.equals("proot")){
-               Toast.makeText(view.getContext(), "目前不支持proot进行配置",Toast.LENGTH_LONG).show();
+               Toast.makeText(view.getContext(), "Currently, proot configuration is not supported",Toast.LENGTH_LONG).show();
                return;
            }
 
