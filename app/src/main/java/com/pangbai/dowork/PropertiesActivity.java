@@ -82,8 +82,8 @@ public class PropertiesActivity extends AppCompatActivity implements View.OnClic
         } else if (view == binding.ctActionRun) {
             PrefStore.dumpProperties(this);
             if (containerInfor.checkInstall(this))
-                dialogUtils.showConfirmationDialog(this,"rootfs已安装","此容器Rootfs已安装,确定要重装吗",
-                        "重装","取消",
+                dialogUtils.showConfirmationDialog(this,"Rootfs Installed","The Rootfs for this container is already installed. Are you sure you want to reinstall?",
+                        "Reinstall","Cancel",
                         this::installAndStop,null);
             else
                 installAndStop();
@@ -91,8 +91,8 @@ public class PropertiesActivity extends AppCompatActivity implements View.OnClic
         }else if (view==binding.ctImport){
             PrefStore.dumpProperties(this);
             if (containerInfor.checkInstall(this))
-                dialogUtils.showConfirmationDialog(this,"Rootfs已安装","此容器Rootfs已安装,确定要重装吗",
-                        "重装","取消",
+                dialogUtils.showConfirmationDialog(this,"Rootfs Installed","The Rootfs for this container is already installed. Are you sure you want to reinstall?",
+                        "Reinstall","Cancel",
                         ()->importAndExportContainer(false),null);
             else
                 importAndExportContainer(false);
@@ -123,10 +123,10 @@ public class PropertiesActivity extends AppCompatActivity implements View.OnClic
         if (!isSaved) {
 
             dialogUtils.showConfirmationDialog(this,
-                    "配置文件未保存",
-                    "确定要放弃修改吗？你将会丢失已修改的数据。",
-                    "保存并退出",
-                    "退出",
+                    "Configuration file not saved",
+                    "Are you sure you want to discard the changes? You will lose the modified data.",
+                    "Save and exit",
+                    "Exit",
                     () -> {
                         PrefStore.dumpProperties(PropertiesActivity.this);
                         PrefStore.changeProfile(this,containerInfor.ct.name);
@@ -142,15 +142,15 @@ public class PropertiesActivity extends AppCompatActivity implements View.OnClic
 
 
     public void  importAndExportContainer(boolean export){
-        String str_action=export?"导出":"导入",
+        String str_action=export?"Export":"Import",
         str_arg=export?"export":"import",
                 str_http=export?"":"&url地址";
 
         dialogUtils.showInputDialog(this,
-                "请输入"+str_action+"Rootfs绝对路径"+str_http+"\ntar.gz/tar.bz2/tar.xz/tar.zst",
+                "Please enter"+str_action+"the absolute path of Rootfs"+str_http+"\ntar.gz/tar.bz2/tar.xz/tar.zst",
                 Rootfs -> {
                     if (!export&&!Rootfs.contains("http")&&!IO.isFileExsit(Rootfs)){
-                        Toast.makeText(this,"Rootfs路径错误",Toast.LENGTH_LONG).show();
+                        Toast.makeText(this,"Rootfs path error",Toast.LENGTH_LONG).show();
                         return;}
                  //   Dialog mdialog = dialogUtils.showCustomLayoutDialog(this, "正在"+str_action+"Rootfs" + containerInfor.ct.name, R.layout.dialog_loading);
 
