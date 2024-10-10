@@ -41,7 +41,7 @@ public class procAdapter extends RecyclerView.Adapter<procAdapter.ViewHolder> {
         holder.procName.setText(text);
 
         holder.procKill.setOnClickListener(v -> {
-           Toast.makeText(v.getContext(),"已结束进程"+ map.get(position).pid,Toast.LENGTH_SHORT).show();
+           Toast.makeText(v.getContext(),"Process has ended"+ map.get(position).pid,Toast.LENGTH_SHORT).show();
             cmdExer.execute("kill -9 "+map.get(position).pid,true,false);
             map.remove(position);
             callback.callback(map.size());
