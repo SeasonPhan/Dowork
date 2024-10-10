@@ -68,10 +68,10 @@ public class containerFragment extends Fragment implements View.OnClickListener 
     public void onClick(View view) {
         if (view == binding.ctAdd) {
             dialogUtils.showInputDialog(getContext(),
-                    "创建容器",
+                    "Create container",
                     userInput -> {
                         if (containerInfor.getContainerByName(userInput) != null) {
-                            Toast.makeText(getActivity(), "容器已存在", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Container already exists", Toast.LENGTH_LONG).show();
                             return;
                         }
                         if (userInput == null)
@@ -83,17 +83,17 @@ public class containerFragment extends Fragment implements View.OnClickListener 
         } else if (view == binding.ctDelete) {
             int containerSize = containerInfor.ctList.size();
             if (containerSize == 1) {
-                Toast.makeText(getContext(), "请确保至少一个容器", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please ensure there is at least one container", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (containerInfor.ct != null)
                 dialogUtils.showConfirmationDialog(getContext(),
-                        "删除容器",
-                        "确定要删除" + containerInfor.ct.name + "吗？你将会丢失容器的数据。",
-                        "确认删除",
-                        "取消",
+                        "Delete Container",
+                        "Are you sure you want to delete " + containerInfor.ct.name + "? You will lose the container's data.",
+                        "Confirm Deletion",
+                        "Cancel",
                         () -> {
-                            Dialog mdialog = dialogUtils.showCustomLayoutDialog(getContext(), "正在删除容器" + containerInfor.ct.name, R.layout.dialog_loading);
+                            Dialog mdialog = dialogUtils.showCustomLayoutDialog(getContext(), "Deleting container" + containerInfor.ct.name, R.layout.dialog_loading);
                             new Thread() {
                                 @Override
                                 public void run() {
@@ -118,10 +118,10 @@ public class containerFragment extends Fragment implements View.OnClickListener 
 
         } else if (view == binding.ctRename) {
             dialogUtils.showInputDialog(getContext(),
-                    "重命名容器",
+                    "Rename container",
                     userInput -> {
                         if (containerInfor.getContainerByName(userInput) != null) {
-                            Toast.makeText(getActivity(), "重命名失败,容器已存在", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Rename failed, container already exists", Toast.LENGTH_LONG).show();
                             return;
                         }
                         File oldFile = PrefStore.getPropertiesConfFile(getContext());
