@@ -129,9 +129,9 @@ public class dashboardFragment extends Fragment implements View.OnClickListener,
                         size = size.substring(0, last).trim();
                     else
                         size = "...";
-                    binding.ctSize.setText("空间占用:" + size);
+                    binding.ctSize.setText("Storage usage:" + size);
 
-                    String tmp = "RAM占用:";
+                    String tmp = "RAM usage:";
                     if (memory < 0)
                         binding.ctRam.setText(tmp + memory + "G");
                     else
@@ -265,16 +265,16 @@ public class dashboardFragment extends Fragment implements View.OnClickListener,
             } else {
                 //      Toast.makeText(getContext(), "s", Toast.LENGTH_LONG).show();
                 if (!containerInfor.checkInstall(getContext())) {
-                    Toast.makeText(getContext(), "容器未安装", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Container not installed", Toast.LENGTH_LONG).show();
                     return;
                 }
                 dialogUtils.showInputDialog(getContext(),
-                        "执行任务",
+                        "Execute task",
                         (dialogUtils.DialogInputListener) userInput -> {
                             if (userInput == null)
                                 return;
                             if (userInput.contains(">"))
-                                Toast.makeText(getContext(), "注意该任务的输出重定向将可能会定向到容器外部，请使用绝对路径", Toast.LENGTH_LONG);
+                                Toast.makeText(getContext(), "Note that the output redirection of this task may be directed outside the container, please use absolute paths", Toast.LENGTH_LONG);
                             mIntent.putExtra("action", mainService.action_exeCmd);
                             mIntent.putExtra("value", Init.linuxDeployDirPath + "/cli.sh exec -u  " + userInput);
                             getContext().startService(mIntent);
