@@ -99,7 +99,7 @@ public class DisplayActivity extends Activity implements View.OnClickListener{
                     "输入字符串",new String[]{"输入","输入到xterm"},
                     (dialogUtils.DialogInputListener) userInput -> jni.inputString(userInput.toString(),false),
                     (dialogUtils.DialogInputListener) userInput -> jni.inputString(userInput.toString(),true));*/
-            dialogUtils.showInputDialog(this, "输入字符串",
+            dialogUtils.showInputDialog(this, "input string",
                     (dialogUtils.DialogInputListener) userInput -> jni.inputString(userInput,true));
         }else if (view==binding.inputDelete){
             jni.inputKeyByString("BackSpace");
